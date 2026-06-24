@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 01 - Responsive Landing Page</title>
+  <style>
+
+    /* ── Basic Reset ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, padding 0.3s ease;
+    }
+
+    nav.scrolled {
+      background-color: #1a1a2e;
+      padding: 10px 40px;
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1a1a2e;
+      transition: color 0.3s ease;
+    }
+
+    nav.scrolled .nav-logo {
+      color: #ffffff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1a1a2e;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #1a1a2e;
+      color: #ffffff;
+    }
+
+    nav.scrolled .nav-links a {
+      color: #ffffff;
+    }
+
+    nav.scrolled .nav-links a:hover {
+      background-color: #e94560;
+      color: #ffffff;
+    }
+
+    /* ── Page Sections ── */
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    section h1 {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    section p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    #home     { background-color: #f0f4ff; }
+    #about    { background-color: #fff4f0; }
+    #services { background-color: #f0fff4; }
+    #contact  { background-color: #f9f0ff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-logo">MyWebsite</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sections -->
+  <section id="home">
+    <h1>Welcome Home</h1>
+    <p>This is the home section. Scroll down to see the navigation menu change its background color and style.</p>
+  </section>
+
+  <section id="about">
+    <h1>About Us</h1>
+    <p>This is the about section. The navigation menu stays fixed at the top and is visible on all pages as you scroll.</p>
+  </section>
+
+  <section id="services">
+    <h1>Our Services</h1>
+    <p>This is the services section. Hover over the menu items to see the hover color change effect.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact Us</h1>
+    <p>This is the contact section. The menu background changed to dark when you scrolled down from the top.</p>
+  </section>
+
+  <script>
+    var navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
